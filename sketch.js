@@ -30,6 +30,16 @@ function setup() {
     plinkos.push(new Plinko(j,175));
   }
 
+  for (var j = 75; j <=width; j=j+50) { 
+    plinkos.push(new Plinko(j,275));
+  }
+
+  //create 4th row of plinko objects
+  for (var j = 50; j <=width-10; j=j+50) 
+  {
+    plinkos.push(new Plinko(j,375));
+  }
+
   //create 3rd row of plinko objects
   
   
@@ -62,6 +72,12 @@ function draw() {
 
 
   //display the particles 
+  for (var l = 0; l < particles.length; l++) {
+    particles[l].display();
+  }
 
+}
 
+function mouseReleased(){
+  particles.push(new Particle(mouseX, 0))
 }

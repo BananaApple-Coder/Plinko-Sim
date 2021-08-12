@@ -1,12 +1,12 @@
-class Particles {
+class Particle {
     constructor(x, y) {
         var options = {
-            restitution: 1,
+            restitution: 0.2,
             friction: 0,
         }
         this.r = 10;
         this.body = Bodies.circle(x, y, this.r, options);
-        //give color property 
+        this.color = color(randNum(),randNum(),randNum())
         World.add(world, this.body);
     }
     display() {
@@ -19,10 +19,15 @@ class Particles {
         rotate(angle);
         imageMode(CENTER);
         noStroke();
-        fill("white");
+        fill(this.color);
         ellipseMode(RADIUS);
         ellipse(0,0,this.r,this.r);
         pop();
     }
 
+
 };
+
+function randNum(){
+    return Math.round(random(0, 255))
+}
